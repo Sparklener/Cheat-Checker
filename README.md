@@ -8,14 +8,46 @@
 
 欢迎star和contribute
 
-目前想法:
+记录:
+
+```
+g++ -E filename.cpp > output.txt
+```
+
+`#define`里面的内容会被替换
+
+编译信息是: `# 行号 文件名`
+
+结论:
+
+编译信息帮助其实不大，展开了`#define`而且有主体部分，但是分开比较麻烦
+
+要是直接`hash`编译信息的话还不如直接`hash`源码
+
+当前困难:
+
+1. typedef & #define
+
+```cpp
+typedef long long ll;
+#define ll long long
+```
+
+2. func & #define 
+
+```cpp
+#define lowbit(i) ((i) & (-i))
+int lowbit(int i){return ((i) & (-i));}
+```
+
+目标:
 
 1. 掐头去尾
-1. 替换变量
-1. 封装函数
-1. 编译结果文件哈希
-1. 大小写
-1. 快读和快写处理
-1. 数据范围
-1. 数组开始的位置(0 / 1)
-1. 实际运行速度比对(Increase Speed)
+2. 替换变量
+3. 封装函数
+4. 编译结果文件哈希
+5. 大小写
+6. 快读和快写处理
+7. 数据范围
+8. 数组开始的位置(0 / 1)
+9. 实际运行速度比对(Increase Speed)
