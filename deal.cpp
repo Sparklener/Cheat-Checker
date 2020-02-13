@@ -1,25 +1,17 @@
-/*
- * Creator: Eqvpkbz
- * Create Date: 2020.2.12
- * Use ./deal FILE_NAME to generate FILE without '\n' and ' ' 
- */
-
-
 #include<cstdio>
 #include<cstdlib>
 #include<string>
-#include<iostream>
 using namespace std;
-string s;
-int main(int argc,char *argv[])
+int main(int argc,char* argv[])
 {
-	freopen(argv[1],"r",stdin);
-	freopen("data.out","w",stdout);
-	while(cin >> s)
+	system("g++ generate.cpp -o generate");
+	string FN,CMD;
+	for(int i = 1;i < argc;i ++)
 	{
-		if(s.find("#include") == s.npos)
-			cout << s;
+		FN.assign(argv[i]);
+		CMD = "./generate " + FN;
+		printf("%s\n",CMD.data());
+		system(CMD.data());
 	}
-	fclose(stdin),fclose(stdout);
 	return 0;
 }
