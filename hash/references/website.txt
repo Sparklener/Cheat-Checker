@@ -1,0 +1,3 @@
+http://cyan4973.github.io/xxHash/
+https://github.com/rizkg/BBHash
+http://stevehanov.ca/blog/?id=119

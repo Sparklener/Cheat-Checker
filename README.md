@@ -6,15 +6,16 @@
 
 于是就有了本项目
 
-欢迎star和contribute
+欢迎`star`和`contribute`
 
 记录:
 
 ```
 g++ -E filename.cpp > output.txt
+g++ -S filename.cpp //生成filename.s的汇编文件
 ```
 
-`#define`里面的内容会被替换
+`#define`里面的内容会内联进调用的位置
 
 编译信息是: `# 行号 文件名`
 
