@@ -25,9 +25,9 @@ namespace char_seq
 		least -= floor(least);
 		return floor(least * ((ldb)BUFSIZE));
 	}
-	inline int CRC(char k[])
+	inline int CRC(char k[],int len)
 	{
-		int len = strlen(k),highorder,h = 0;
+		int highorder,h = 0;
 		for(int i = 0;i < len;i ++)
 		{
 			highorder = h & 0xf8000000;
@@ -37,9 +37,9 @@ namespace char_seq
 		}
 		return h;
 	}
-	inline int PJW(char k[])
+	inline int PJW(char k[],int len)
 	{
-		int len = strlen(k),h = 0,g;
+		int h = 0,g;
 		for(int i = 0;i < len;i ++)
 		{
 			h = (h << 4) + k[i];
@@ -50,9 +50,9 @@ namespace char_seq
 		}
 		return h;
 	}
-	inline int BUZ(char k[])
+	inline int BUZ(char k[],int len)
 	{
-		int len = strlen(k),h = 0,highorder;
+		int h = 0,highorder;
 		for(int i = 0;i < len;i ++)
 		{
 			highorder = h & 0x80000000;
@@ -65,9 +65,22 @@ namespace char_seq
 }
 
 using namespace char_seq;
-
-int main()
+const int MAXN = 1e7 + 5;
+char s[MAXN];
+int main(int argc,char* argv[])
 {
-	
+	if(argc > 2) 
+    {
+		puts("Use ./hash [FILENAME] to get the key.");
+        return 0;
+    }
+    freopen(argv[1],"r",stdin);
+	CALC();
+	int len = 0;char c = getchar();
+	while(c != EOF)
+		s[len ++] = c,
+		c = getchar();
+	printf("%d\n%d\n%d\n",CRC(s,len),PJW(s,len),BUZ(s,len));
+    fclose(stdin);
     return 0;
 }
